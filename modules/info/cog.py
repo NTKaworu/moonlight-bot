@@ -17,6 +17,11 @@ class Info(commands.Cog, name="ℹ️ Info"):
     @nextcord.slash_command(guild_ids=[TESTING_GUILD_ID], name='info', description='Print server iformation')
     async def print_info(self, interaction: Interaction):
         """Print minecraft info"""
+        white = Embed(title='WHITELIST')
+        white.add_field(name=" ", value="Per entrare nel server è necessario essere nella whitelist. Per registrarsi seguire i passaggi nel canale apposito")
+        white.add_field(name=" ", value="<#1062647569597079572>")
+
+
         primo = Embed(title="Minecraft Server - INFO", color=0x00ff2a)
         primo.add_field(name=" ", value="Per accedere al server basta connettersi all'ip  `2.59.156.46 ` Il server è aperto 24/7 - tempo di manutenzione se necessario")
 
@@ -42,7 +47,10 @@ class Info(commands.Cog, name="ℹ️ Info"):
 
         sesto = Embed(title="Contacts", description="Per qualsiasi informazione, dubbio o richiesta non esitate ad aprire un ticket o a chiedere aiuto in privato", color=0xffc800)
         sesto.add_field(name=" ", value="<@420976633776832523> <#870609512405540925>")
-        await interaction.response.send_message(embeds=[primo, secondo, terzo, quarto, quinto, sesto])
+
+
+        await interaction.channel.send(embeds=[white, primo, secondo, terzo, quarto, quinto, sesto])
+        await interaction.response.send_message("Operation complete", ephemeral=True)
 
 def setup(bot: commands.Bot):
     bot.add_cog(Info(bot))
