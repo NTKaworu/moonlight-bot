@@ -17,7 +17,7 @@ class Info(commands.Cog, name="ℹ️ Info"):
     @nextcord.slash_command(guild_ids=[TESTING_GUILD_ID], name='info', description='Print server iformation')
     async def print_info(self, interaction: Interaction):
         """Print minecraft info"""
-        white = Embed(title='WHITELIST')
+        white = Embed(title='WHITELIST', color=0xffffff)
         white.add_field(name=" ", value="Per entrare nel server è necessario essere nella whitelist. Per registrarsi seguire i passaggi nel canale apposito")
         white.add_field(name=" ", value="<#1062647569597079572>")
 
